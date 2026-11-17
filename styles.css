@@ -1370,11 +1370,9 @@ button {
   .legal-grid,
   .contacto-grid {
     grid-template-columns: 1fr;
+    gap: 28px;
   }
   .potencial-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .proyecto-drawer-inner {
     grid-template-columns: repeat(2, 1fr);
   }
   .legal-icon-divider {
@@ -1389,43 +1387,356 @@ button {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 18px;
+  }
+
+  /* 1. Navbar Móvil Compacto */
+  .navbar-inner {
+    height: 64px;
+    gap: 10px;
+  }
+  .brand {
+    gap: 10px;
+  }
+  .brand-logo svg {
+    width: 76px;
+    height: 20px;
+  }
+  .brand-title {
+    font-size: 0.86rem;
+    letter-spacing: 0.09em;
+  }
+  .brand-subtitle {
+    font-size: 0.46rem;
+    letter-spacing: 0.16em;
+  }
+  .brand-divider {
+    display: none;
+  }
+  .navbar .btn-gold {
+    padding: 8px 12px;
+    font-size: 0.74rem;
+    gap: 6px;
+    border-radius: 7px;
+  }
+  .navbar .btn-gold svg {
+    width: 15px;
+    height: 15px;
+  }
   .nav-links {
     display: none;
     position: absolute;
-    top: 74px;
+    top: 64px;
     left: 0;
     right: 0;
-    background: var(--forest-950);
+    background: rgba(5, 25, 22, 0.98);
+    backdrop-filter: blur(16px);
     flex-direction: column;
-    padding: 20px;
-    border-bottom: 1px solid var(--gold-500);
+    align-items: stretch;
+    padding: 12px 20px 18px;
+    border-bottom: 1.5px solid var(--gold-500);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+    gap: 0;
   }
   .nav-links.open {
     display: flex;
   }
+  .nav-links li {
+    width: 100%;
+    border-bottom: 1px solid rgba(209, 170, 86, 0.15);
+  }
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
   .nav-links li::after {
-    display: none;
+    display: none !important;
+  }
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 12px 4px;
+    font-size: 0.84rem;
   }
   .mobile-menu-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+  }
+
+  /* 2. Hero Móvil con Foto Aérea Visible */
+  .hero {
+    margin-top: 64px;
+    min-height: auto;
+    background-image: url('assets/hero-aerial.jpg');
+    background-position: center center;
   }
   .hero::before {
-    background: rgba(6, 32, 28, 0.82);
+    background: linear-gradient(
+      180deg,
+      rgba(6, 32, 28, 0.76) 0%,
+      rgba(6, 32, 28, 0.86) 52%,
+      rgba(5, 25, 22, 0.96) 100%
+    );
   }
-  .highlights-grid,
-  .potencial-cards-grid,
-  .form-grid,
-  .proyecto-drawer-inner {
-    grid-template-columns: 1fr;
+  .hero-content {
+    padding: 36px 0 40px;
+    max-width: 100%;
+  }
+  .hero-overline {
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+  }
+  .hero-title {
+    font-size: clamp(2.35rem, 10vw, 3.1rem);
+  }
+  .hero-subtitle {
+    font-size: 0.96rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 14px;
+  }
+  .hero-tagline {
+    font-size: 0.82rem;
+    letter-spacing: 0.09em;
+    margin-bottom: 18px;
+  }
+  .hero-location-text strong {
+    font-size: 0.96rem;
+  }
+  .hero-location-text span {
+    font-size: 0.82rem;
+  }
+  .surface-badge-wrapper {
+    width: 100%;
+  }
+  .surface-badge {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 18px;
+    gap: 14px;
+  }
+  .surface-badge-value {
+    font-size: 1.32rem;
+  }
+  .surface-unit-hint {
+    font-size: 0.68rem;
+  }
+
+  /* 3. Barra de 4 Pilares en Cuadrícula 2x2 Móvil */
+  .highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .highlight-item {
+    justify-content: flex-start;
+    padding: 14px 12px;
+    gap: 10px;
+    border-bottom: 1px solid rgba(209, 170, 86, 0.22);
+  }
+  .highlight-item:nth-child(odd) {
+    border-right: 1px solid rgba(209, 170, 86, 0.22);
+  }
+  .highlight-item:nth-child(3),
+  .highlight-item:nth-child(4) {
+    border-bottom: none;
   }
   .highlight-item::after {
     display: none;
   }
+  .highlight-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+  .highlight-text {
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* 4. Secciones Generales y El Proyecto */
+  .section-proyecto,
+  .section-ubicacion,
+  .section-potencial,
+  .section-legal,
+  .section-contacto {
+    padding: 42px 0;
+  }
+  .section-title {
+    font-size: 1.65rem;
+    margin-bottom: 14px;
+  }
+  .proyecto-description {
+    font-size: 0.92rem;
+  }
+  .proyecto-image-card {
+    min-height: 220px;
+    aspect-ratio: 16 / 10;
+  }
+
+  /* 5. Ubicación Estratégica en Móvil */
+  .ubicacion-info {
+    padding-left: 0;
+    order: -1;
+  }
+  .ubicacion-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+  .ubicacion-actions .btn-outline-forest {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 16px;
+  }
+  .map-card img {
+    height: 215px;
+  }
+  .colindancias-box {
+    padding: 16px 18px;
+    gap: 14px;
+  }
+  .colindancia-item {
+    padding: 8px 6px 12px;
+    border-bottom: 1px solid rgba(184, 140, 56, 0.25);
+  }
+  .colindancia-item:last-child {
+    border-bottom: none;
+    padding-bottom: 4px;
+  }
+
+  /* 6. Potencial de Desarrollo en Cuadrícula 2x2 Interactiva */
+  .potencial-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .potencial-card {
+    min-height: 155px;
+    aspect-ratio: 1.05 / 1;
+    border-radius: 12px;
+  }
+  .potencial-card-body {
+    padding: 6px 6px 10px;
+  }
+  .potencial-card-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+  .potencial-card-title {
+    font-size: 0.62rem;
+    line-height: 1.2;
+  }
   .potencial-detail-panel {
+    margin-top: 20px;
+    padding: 18px 16px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .potencial-detail-content h4 {
+    font-size: 1.1rem;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .potencial-detail-content p {
+    font-size: 0.86rem;
+  }
+  #sectorCtaBtn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* 7. Respaldo Legal en Móvil */
+  .legal-title {
+    font-size: 1.45rem;
+    white-space: normal;
+  }
+  .legal-checklist li {
+    font-size: 0.88rem;
+  }
+  .legal-checklist li br {
+    display: none;
+  }
+  .legal-image-card {
+    max-height: 210px;
+  }
+  .legal-image-card img {
+    height: 210px;
+    object-fit: cover;
+  }
+
+  /* 8. Contacto y Formulario Móvil (sin auto-zoom en iOS) */
+  .contacto-quote-box {
+    padding: 6px 0 10px;
+  }
+  .contacto-quote {
+    font-size: 1.55rem;
+  }
+  .quote-swoosh {
+    width: 180px;
+  }
+  .form-card {
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+  .form-title {
+    font-size: 1.28rem;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .form-input {
+    font-size: 16px;
+    padding: 12px 14px;
   }
   .btn-submit {
     width: 100%;
+    padding: 13px 20px;
+  }
+
+  /* 9. Footer, WhatsApp Flotante y Lightbox en Móvil */
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.72rem;
+    padding: 16px 0 76px;
+  }
+  .footer-bottom-inner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+  }
+  .floating-wa {
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 15px;
+    font-size: 0.78rem;
+  }
+  .lightbox-modal {
+    padding: 12px;
+  }
+  .lightbox-content {
+    padding: 12px;
+  }
+  .lightbox-close {
+    top: 8px;
+    right: 8px;
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar .btn-gold span {
+    display: none;
+  }
+  .navbar .btn-gold {
+    padding: 8px 10px;
+  }
+  .highlights-grid {
+    grid-template-columns: 1fr;
+  }
+  .highlight-item:nth-child(odd) {
+    border-right: none;
+  }
+  .highlight-item:nth-child(3) {
+    border-bottom: 1px solid rgba(209, 170, 86, 0.22);
   }
 }
